@@ -1,0 +1,64 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  .slideshow {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    height: 300px;
+    overflow: hidden;
+  }
+  
+  .slide {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    position: absolute;
+    animation: fade 1.5s infinite;
+  }
+  
+  #slide1 { background-image: url('asset/9d9dd9e4-e84a-402e-ba8f-daa659e6e6c5-PhotoWord_003.webp'); }
+  #slide2 { background-image: url('https://placekitten.com/601/300'); }
+  #slide3 { background-image: url('https://placekitten.com/602/300'); }
+  
+  .controls {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  label {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    background-color: #bbb;
+    margin: 0 5px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  
+  input[type="radio"] {
+    position: absolute;
+    top: -9999px;
+  }
+  
+  input[type="radio"]:checked + .slideshow #slide1 { animation: none; opacity: 1; }
+  input[type="radio"]:checked + .slideshow #slide2 { animation: none; opacity: 1; }
+  input[type="radio"]:checked + .slideshow #slide3 { animation: none; opacity: 1; }
+  
+  @keyframes fade {
+    25%, 75% { opacity: 0; }
+    0%, 100% { opacity: 1; }
+  }
+  
