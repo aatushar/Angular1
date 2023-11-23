@@ -1,33 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import { EmployeeModel } from './employee.model';
-import { ApiService } from '../services/api.service';
+import { TeacherModel } from './teacher.model';
+
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-employee',
-  templateUrl: './employee.component.html',
-  styleUrl: './employee.component.css'
+  templateUrl: './teacher.component.html',
+  styleUrl: './teacher.component.css'
 })
 export class EmployeeComponent implements OnInit {
 
-  employeeModel : EmployeeModel=new EmployeeModel();
+  employeeModel : TeacherModel=new TeacherModel();
   formValue !: FormGroup;
 
   employeeData: any;
 
 
 
-  constructor(private api: ApiService, private formBuilder: FormBuilder) {
-
-  }
+  
 
   ngOnInit(): void {
     this.formValue = this.formBuilder.group({
-      firstName: [''],
-      lastName: [''],
-      email: [''],
-      cell: [''],
-      salary: [''],
+      name: [''],
+      department: [''],
+      gender: [''],
+      hobby: [''],
+      
 
     });
 
@@ -38,8 +36,8 @@ export class EmployeeComponent implements OnInit {
   saveEmployee() {
 
     
-      this.employeeModel.firstName = this.formValue.value.firstName;
-      this.employeeModel.lastName = this.formValue.value.lastName;
+      this.teachermodel.name = this.formValue.value.firstName;
+      this.employeeModel.department = this.formValue.value.department;
       this.employeeModel.email = this.formValue.value.email;
       this.employeeModel.cell = this.formValue.value.cell;
       this.employeeModel.salary = this.formValue.value.salary;
