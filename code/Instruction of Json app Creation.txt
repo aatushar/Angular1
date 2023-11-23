@@ -1,0 +1,30 @@
+0. ng new Project Nmae(final-warning) --no-standalone 
+
+1. Install jeson server globallly
+	*npm i - g json-server
+(json-se
+\
+
+
+
+2. Now take a Component
+	* ng g  c componenetName
+
+3. take service ts file
+	* ng g s serviceNmae/services
+
+4. take A model ts file(task)
+	* Manuaaly genatate
+
+5. Now Prepare Model ts file
+
+6. Secice ts
+
+7. Work on component ts file
+ 
+8. Work on app.modules.ts
+	*FromModules
+	*ReactiveFromModules
+	* HttpClientModules 
+	*Map
+9.Work on UI (html)

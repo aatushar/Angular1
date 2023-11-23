@@ -1,19 +1,10 @@
-import { Component, NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+export class EmployeeModel{
 
-const routes: Routes = [];
+  id: number=0;
+  firstName:string='';
+  lastName:string='';
+  email:string='';
+  cell:string='';
+  salary:string='';
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
-
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
-})
-export class AppComponent {
-  title = 'Test_Crud_with_jason';
 }

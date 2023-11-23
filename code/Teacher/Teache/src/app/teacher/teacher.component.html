@@ -1,7 +1,7 @@
 <nav class="navbar navbar-light bg-primary p-2">
     <h4 class="text-light"> Test CRUD</h4>
     <div class="d-flex">
-        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Employee</button>
+        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Teacher</button>
     </div>
 </nav>
 
@@ -10,26 +10,26 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>Cell</th>
-                <th>Salary</th>
-                <th>Action</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Gender</th>
+                <th>Hobby</th>
+                
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let row of employeeData">
+            <tr *ngFor="let row of teacherData">
                 <td>{{row.id}}</td>
-                <td>{{row.firstName}}</td>
-                <td>{{row.lastName}}</td>
-                <td>{{row.email}}</td>
-                <td>{{row.cell}}</td>
-                <td>{{row.salary}}</td>
+                <td>{{row.name}}</td>
+                <td>{{row.department}}</td>
+                <td>{{row.gender}}</td>
+                <td>{{row.hobby}}</td>
+            
+                
                 
                 <td>
-                    <button class="btn btn-warning mx-1" (click)="onEdite(row)" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>
-                    <button class="btn btn-danger mx-1" (click)="deleteEmployee(row)">Delete</button>
+                    <button class="btn btn-warning mx-1" (click)="onEdit(row)" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit</button>
+                    <button class="btn btn-danger mx-1" (click)="deleteTeacher(row)">Delete</button>
                 </td>
 
             </tr>
@@ -45,32 +45,28 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Employee Form</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Teacher Form</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="modal-body">
                     <form [formGroup]="formValue">
                         <div class="mb-3">
-                            <label  class="form-label">First Name</label>
+                            <label  class="form-label">Name</label>
                             <input type="text" class="form-control" formControlName="firstName" >                        
                         </div>
+                    
                         
                         <div class="mb-3">
-                            <label  class="form-label">Last Name</label>
-                            <input type="text" class="form-control" formControlName="lastName">                        
-                        </div>
-                        
-                        <div class="mb-3">
-                            <label  class="form-label">Email</label>
+                            <label  class="form-label">Depatrtment</label>
                             <input type="email" class="form-control"  formControlName="email">                        
                         </div>
                         <div class="mb-3">
-                            <label  class="form-label">Cell</label>
+                            <label  class="form-label">Gender</label>
                             <input type="text" class="form-control" formControlName="cell" >                        
                         </div>
                         <div class="mb-3">
-                            <label  class="form-label">Salary</label>
+                            <label  class="form-label">Hobby</label>
                             <input type="text" class="form-control"  formControlName="salary">                        
                         </div>
                         
@@ -84,4 +80,4 @@
             </div>
         </div>
     </div>
-</div>
+</div><p>teacher works!</p>
