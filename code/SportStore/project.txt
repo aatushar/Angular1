@@ -1,0 +1,15 @@
+1/ npm i bootstrap@5.3.2
+
+npm i @auth0/angular-jwt
+
+2/npm install @fortawesome/fontawesome-free
+ 
+3/ npm i -g json-server
+
+json-server --watch bd.json
+
+4/ npm i jsonwebtoken
+
+5/ npm run json
+
+
