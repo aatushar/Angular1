@@ -1,0 +1,64 @@
+{
+  "teacher": [
+    {
+      "name": "tytytyty",
+      "department": "English",
+      "gender": "male",
+      "hobby": [
+        "Sports"
+      ],
+      "id": 1
+    },
+    {
+      "name": "yyyyyyyyyyy",
+      "department": "Math",
+      "gender": null,
+      "hobby": [
+        "Sports",
+        "Travelling"
+      ],
+      "id": 2
+    },
+    {
+      "name": "Foysal",
+      "department": "Math",
+      "gender": "male",
+      "hobby": [
+        "Travelling",
+        "Sports"
+      ],
+      "id": 3
+    },
+    {
+      "name": "Pranto",
+      "department": "Math",
+      "gender": "male",
+      "hobby": [
+        "Reading",
+        "Riding"
+      ],
+      "id": 4
+    },
+    {
+      "name": "hasan",
+      "department": "Math",
+      "gender": "male",
+      "hobby": [
+        "Reading",
+        "Riding",
+        "Sports"
+      ],
+      "id": 5
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
