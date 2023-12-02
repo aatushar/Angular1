@@ -1,0 +1,6 @@
+1.npm i bootstrap@5.3.2
+2.npm install @fortawesome/fontawesome-free
+3.npm i -g json-server
+4.npm i jsonwebtoken
+5.npm run json
+6.ng g environments
