@@ -2,7 +2,7 @@ export class TeacherModel{
    id!:number;
    name!:string;
    department!:string;
-   gender!:string;
+   marks!:string;
    hobby !: string[];
 
 
