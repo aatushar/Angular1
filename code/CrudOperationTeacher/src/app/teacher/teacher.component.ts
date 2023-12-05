@@ -48,7 +48,7 @@ export class TeacherComponent implements OnInit {
     this.formValue = this.formBuilder.group({
       name: [''],
       department: [''],
-      gender: [''],
+      marks: [''],
       hobby:['']
       
     });
@@ -63,13 +63,13 @@ export class TeacherComponent implements OnInit {
     
     this.teacherModel.name = this.formValue.value.name;
     this.teacherModel.department = this.formValue.value.department;
-    this.teacherModel.gender = this.formValue.value.gender;
+    this.teacherModel.marks= this.formValue.value.marks;
     this.teacherModel.hobby = this.selectedHobbies;
 
     this.teacher.teacherPost(this.teacherModel)
       .subscribe(res => {
         console.log(res);
-        alert("Teacher Added")
+        alert("Student  Added")
         this.formValue.reset();
         this.getAll();
         
@@ -92,7 +92,7 @@ export class TeacherComponent implements OnInit {
     this.teacher.deleteTeacher(row.id)
     .subscribe(res => {
       console.log(res);
-      alert("Teacher Deleted")
+      alert("Student  Deleted")
       this.formValue.reset();
       this.getAll();
       
@@ -116,14 +116,14 @@ export class TeacherComponent implements OnInit {
     TeacherEdit(){
     this.teacherModel.name = this.formValue.value.name;
     this.teacherModel.department = this.formValue.value.department;
-    this.teacherModel.gender = this.formValue.value.gender;
+    this.teacherModel.marks = this.formValue.value.marks;
     this.teacherModel.hobby = this.selectedHobbies;
    
   
       this.teacher.editTeacher(this.teacherModel.id, this.teacherModel)
       .subscribe(res => {
         console.log(res);
-        alert("Teacher Updated")
+        alert("Student  Updated")
         this.formValue.reset();
         this.getAll();
         

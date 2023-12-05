@@ -1,63 +1,46 @@
 {
   "teacher": [
     {
-      "name": "tytytyty",
-      "department": "English",
-      "gender": "male",
-      "hobby": [
-        "Sports"
-      ],
-      "id": 1
-    },
-    {
-      "name": "yyyyyyyyyyy",
+      "name": "Tushar",
       "department": "Math",
-      "gender": null,
-      "hobby": [
-        "Sports",
-        "Travelling"
-      ],
-      "id": 2
-    },
-    {
-      "name": "Foysal",
-      "department": "Math",
-      "gender": "male",
-      "hobby": [
-        "Travelling",
-        "Sports"
-      ],
-      "id": 3
-    },
-    {
-      "name": "Pranto",
-      "department": "Math",
-      "gender": "male",
-      "hobby": [
-        "Reading",
-        "Riding"
-      ],
-      "id": 4
-    },
-    {
-      "name": "hasan",
-      "department": "Math",
-      "gender": "male",
-      "hobby": [
-        "Reading",
-        "Riding",
-        "Sports"
-      ],
+      "marks": "65",
+      "hobby": [],
       "id": 5
     },
     {
-      "name": "yyyyyyyyyyyyyyyyyy",
+      "name": "Rafiq",
       "department": "English",
-      "gender": "male",
-      "hobby": [
-        "Sports"
-      ],
+      "marks": "78",
+      "hobby": [],
       "id": 6
+    },
+    {
+      "name": "yyy",
+      "department": "Math",
+      "marks": "88",
+      "hobby": [],
+      "id": 7
+    },
+    {
+      "name": "zz",
+      "department": "Bangla",
+      "marks": "78",
+      "hobby": [],
+      "id": 8
+    },
+    {
+      "name": "tttt",
+      "department": "Math",
+      "marks": "778",
+      "hobby": [],
+      "id": 9
+    },
+    {
+      "name": "uu",
+      "department": "Math",
+      "marks": "78",
+      "hobby": [],
+      "id": 10
     }
   ],
   "comments": [
