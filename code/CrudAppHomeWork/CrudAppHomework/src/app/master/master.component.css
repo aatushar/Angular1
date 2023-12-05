@@ -1,0 +1,23 @@
+.mat-mdc-radio-button ~ .mat-mdc-radio-button {
+    margin-left: 16px;
+  }
+  .form-label{
+
+    padding: -2px;
+
+  }
+  .container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .checkbox-group {
+    margin-right: 20px; 
+    display: flex;
+    align-items: center;
+  }
+  
+  .checkbox-group input[type="checkbox"] {
+    margin-right: 5px; 
+  }
+  
