@@ -21,6 +21,7 @@ export class EventBookingsComponent {
   getMyBpooking() {
     this.http.get('https://freeapi.miniprojectideas.com/api/EventBooking/GetAllEventBooking').subscribe((res:any)=>{
      this.bookings = res.data;
+     
     })
   }
 }
