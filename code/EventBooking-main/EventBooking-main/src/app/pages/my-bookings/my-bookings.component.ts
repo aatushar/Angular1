@@ -46,13 +46,13 @@ export class MyBookingsComponent {
       this.bookings = res.data;
     });
   }
-  deleteBooking(bookingId: number) {
-    this.http.delete('https://freeapi.miniprojectideas.com/api/EventBooking/DeleteBookingById?bookingId=' + bookingId).subscribe((res: any) => {
-      console.log('Booking deleted successfully:', res);
-      // Refresh the bookings array after deletion (assuming you want to remove the deleted booking from the array)
-      this.bookings = this.bookings.filter(booking => booking.id !== bookingId);
-    });
-  }
+  // deleteBooking(bookingId: number) {
+  //   this.http.delete('https://freeapi.miniprojectideas.com/api/EventBooking/DeleteBookingById?bookingId=' + bookingId).subscribe((res: any) => {
+  //     console.log('Booking deleted successfully:', res);
+  //     // Refresh the bookings array after deletion (assuming you want to remove the deleted booking from the array)
+  //     this.bookings = this.bookings.filter(booking => booking.id !== bookingId);
+  //   });
+  // }
   
   }
 
