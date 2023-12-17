@@ -22,5 +22,23 @@ export class EventListComponent {
     this.http.get('https://freeapi.miniprojectideas.com/api/EventBooking/GetEventsByOrganizer?organizerId='+ this.loggedUserData.userId).subscribe((res:any)=>{
       this.eventList = res.data;
     })
+
   }
-}
+  onDeleteEvent(id: string): void {
+    console.log('Deleting event with ID:', id);
+  
+    this.http.delete(`https://freeapi.miniprojectideas.com/api/EventBooking/DeleteBookingById?id=${id}`)
+      .subscribe(
+        () => {
+          console.log('Event deleted successfully');
+          // Optionally, reload the eventList after deletion
+          this.loadEvent();
+        },
+        (error) => {
+          console.error('Error deleting event', error);
+        }
+      );
+  }
+  
+  }
+  

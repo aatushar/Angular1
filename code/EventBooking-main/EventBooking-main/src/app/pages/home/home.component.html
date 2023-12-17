@@ -67,10 +67,12 @@
                                         <div class="col-lg-4">
                                             <ul class="sc-widget">
                                                 <li><i class="fa fa-user"></i> {{event.organizerName}}</li>
-                                                <li><i class="fa fa-map-marker"></i> {{event.price}}
-                                                </li>
+                                                <!-- Replace the location icon with a taka sign for the price -->
+                                                <li><i class="fa fa-taka"></i> {{event.price | currency:'BDT'}}</li>
                                             </ul>
                                         </div>
+                                        
+                                        
                                         <div class="col-lg-2">
                                             <div class="book-div">
                                                 <button class="primary-btn" (click)="bookNow(event)">Book Now</button>
