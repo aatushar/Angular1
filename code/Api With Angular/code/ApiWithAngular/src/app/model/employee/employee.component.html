@@ -1,0 +1,40 @@
+<div>
+    <h2>Employee List</h2>
+  
+    <ul>
+      <li *ngFor="let employee of employees">
+        {{ employee.name }} - {{ employee.email }} --{{ employee.department?.dname }}
+      </li>
+    </ul>
+  </div>
+  
+  <div>
+    <h2>Create Employee</h2>
+  
+    <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+      <label for="name">Name:</label>
+      <input type="text" id="name" formControlName="name">
+  
+      <label for="email">Email:</label>
+      <input type="text" id="email" formControlName="email">
+  
+      <label for="gender">Gender:</label>
+      <input type="text" id="gender" formControlName="gender">
+  
+      <label for="eCellNo">Cell Number:</label>
+      <input type="text" id="eCellNo" formControlName="eCellNo">
+  
+      <label for="dob">Date of Birth:</label>
+      <input type="text" id="dob" formControlName="dob">
+  
+      <label for="image">Image URL:</label>
+      <input type="text" id="image" formControlName="image">
+  
+      <label for="department">Department:</label>
+      <select id="department" formControlName="department">
+        <option *ngFor="let dept of departments" [value]="dept.dname">{{dept.dname }}</option>
+      </select>
+  
+      <button type="submit" [disabled]="employeeForm.invalid">Create Employee</button>
+    </form>
+  </div>
