@@ -1,0 +1,20 @@
+<!-- generic.component.html -->
+<main id="main" class="main">
+<ul class="generic-list">
+    <li *ngFor="let generic of generics" (click)="onSelect(generic)">
+      {{ generic.name }}
+    </li>
+  </ul>
+  
+  <div class="generic-details" *ngIf="selectedGeneric">
+    <input [(ngModel)]="selectedGeneric.name" class="generic-input" placeholder="Name">
+    <button class="generic-button" (click)="save(selectedGeneric)">Save</button>
+    <button class="generic-button" *ngIf="selectedGeneric && selectedGeneric.id !== undefined" (click)="delete(selectedGeneric.id)">Delete</button>
+  </div>
+  
+  <div class="add-generic">
+    <input [(ngModel)]="newGenericName" class="generic-input" placeholder="New Gadgets Name">
+    <button class="generic-button" (click)="addNewGeneric()">Add New Gadgets</button>
+  </div>
+</main>
+

@@ -1,0 +1,86 @@
+<main id="main" class="main">
+<div class="container">
+  <h2>Add Sale</h2>
+  <form *ngIf="salesForm" [formGroup]="salesForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="medicine">Medicine:</label>
+      <select formControlName="medicine" class="form-control" id="medicine" (change)="updateUnitPrice()">
+        <option value="" disabled>Select a item</option>
+        <option *ngFor="let med of medicine" [value]="med.id">{{ med.name }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="unitPrice">Unit Price:</label>
+      <input type="number" formControlName="unitPrice" class="form-control" id="unitPrice" [readonly]="true">
+    </div>
+    <div class="form-group">
+      <label for="quantitySold">Quantity:</label>
+      <input type="number" formControlName="quantitySold" class="form-control" id="quantitySold" (input)="calculateTotalPrice()">
+    </div>
+    
+    <div class="form-group">
+      <label for="totalPrice">Total Price:</label>
+      <input type="number" formControlName="totalPrice" class="form-control" id="totalPrice" [readonly]="true">
+    </div>
+    <div class="form-group">
+      <label for="saleDate">Sale Date:</label>
+      <input type="date" formControlName="saleDate" class="form-control" id="saleDate">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+<!-- start save form -->
+<!-- <div class="container mt-5">
+  <h4>Search Your Daily Sales</h4>
+  <div class="form-group">
+    <label for="searchDate">Select Date:</label> -->
+    <!-- <input type="date" class="form-control" id="searchDate" (change)="searchSales()"> -->
+
+    
+  <!-- <button type="submit" class="btn btn-primary">Search</button>
+  </div>
+  <table class="table">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Sale ID</th>
+          <th>Medicine</th>
+          <th>Quantity Sold</th>
+          <th>Unit Price</th>
+          <th>Total Price</th>          
+        </tr>
+      </thead>
+    
+    </table>
+  </table>
+
+</div> -->
+
+
+<div class="container mt-5">
+  <h2>All Sales</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Sale ID</th>
+        <th>Medicine</th>
+        <th>Quantity Sold</th>
+        <th>Unit Price</th>
+        <th>Total Price</th>
+        <th>Sale Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let sale of sales">
+        <td>{{ sale.saleId }}</td>
+        <td>{{ sale.medicine?.name }}</td>
+        <td>{{ sale.quantitySold }}</td>
+        <td>{{ sale.medicine?.unitPrice }}</td>
+        <td>{{ sale.totalPrice }}</td>
+        <td>{{ sale.saleDate | date }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</main>

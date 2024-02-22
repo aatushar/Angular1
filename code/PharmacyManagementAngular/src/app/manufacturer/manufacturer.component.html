@@ -1,0 +1,62 @@
+
+<main id="main" class="main">
+<div class="container">
+    <h2>Brand Name</h2>
+  
+    <!-- List of Manufacturers -->
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let manufacturer of manufacturers" (click)="onSelect(manufacturer)">
+        {{ manufacturer.name }}
+      </li>
+    </ul>
+  
+    <!-- Form for Adding or Editing Manufacturer -->
+    <div *ngIf="selectedManufacturer">
+      <div *ngIf="!isEditing" class="card">
+        <!-- Display Selected Manufacturer Details -->
+        <div class="card-body">
+          <h3 class="card-title">{{ selectedManufacturer.name }}</h3>
+          <p class="card-text">Contact Person: {{ selectedManufacturer.contactPersonName }}</p>
+          <p class="card-text">Contact Number: {{ selectedManufacturer.contactPersonCellNo }}</p>
+          <p class="card-text">Email: {{ selectedManufacturer.email }}</p>
+          <p class="card-text">Address: {{ selectedManufacturer.address }}</p>
+  
+          <!-- Buttons for Editing or Deleting -->
+          <button class="btn btn-primary" (click)="isEditing = true">Edit</button>
+          <button class="btn btn-danger" (click)="deleteManufacturer(selectedManufacturer.id!)">Delete</button>
+        </div>
+      </div>
+  
+      <!-- Form for Editing or Adding New Manufacturer -->
+      <div *ngIf="isEditing" class="card">
+        <div class="card-body">
+          <h3 class="card-title">{{ selectedManufacturer.id ? 'Edit' : 'Add New' }} Brand</h3>
+          <form [formGroup]="manufacturerForm" (ngSubmit)="saveManufacturer()">
+            <div class="mb-3">
+              <input formControlName="name" class="form-control" placeholder="Name">
+            </div>
+            <div class="mb-3">
+              <input formControlName="contactPersonName" class="form-control" placeholder="Contact Person Name">
+            </div>
+            <div class="mb-3">
+              <input formControlName="contactPersonCellNo" class="form-control" placeholder="Contact Number">
+            </div>
+            <div class="mb-3">
+              <input formControlName="email" class="form-control" placeholder="Email">
+            </div>
+            <div class="mb-3">
+              <input formControlName="address" class="form-control" placeholder="Address">
+            </div>
+  
+            <!-- Save or Cancel Buttons -->
+            <button type="submit" class="btn btn-success">Save</button>
+            <button type="button" class="btn btn-secondary" (click)="cancelEdit()">Cancel</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Button to Add New Manufacturer -->
+    <button class="btn btn-primary" (click)="addManufacturer()">Add New Brand</button>
+  </div>
+</main>
