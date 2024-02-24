@@ -5,8 +5,9 @@ export class Medicine{
     name?: string;
     quantity?: number;
     unitPrice?: number;
+    totalPrice?: number;
     productionDate?: Date;
-    expiryDate?: Date;
+    // expiryDate?: Date;
         
     generic?: {
     

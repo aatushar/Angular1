@@ -43,12 +43,46 @@ export class MedicineComponent implements OnInit {
       name: ['', Validators.required],
       quantity:['', Validators.required],
       unitPrice:['', Validators.required],
+      totalprice:['', Validators.required],
       productionDate:['', Validators.required],
-      expiryDate:['', Validators.required],
+      // expiryDate:['', Validators.required],
       generic: [null, Validators.required],
       manufacturer: [null, Validators.required] // Assuming you have a department dropdown
     });
+    
   }
+  updateUnitPrice(): void {
+    const control = this.medicineForm.get('medicine');
+    if (control != null) {
+      const selectedMedicineId = control.value;
+      console.log('Selected Medicine ID:', selectedMedicineId);
+      console.log('Medicine Array:', this.medicine);
+      const selectedMedicine = this.medicine.find(med => med.id == selectedMedicineId);
+      console.log('Selected Medicine:', selectedMedicine);
+      if (selectedMedicine) {
+        this.medicineForm.get('unitPrice')?.setValue(selectedMedicine.unitPrice);
+        this.calculateTotalPrice();
+      } else {
+        console.log('Selected Medicine not found in the array');
+      }
+    }
+  }
+  calculateTotalPrice(): void {
+    const quantityControl = this.medicineForm.get('quantity');
+    const unitPriceControl = this.medicineForm.get('unitPrice');
+  
+    if (quantityControl !== null && unitPriceControl !== null) {
+      const quantity = quantityControl.value;
+      const unitPrice = unitPriceControl.value;
+  
+      if (quantity !== null && unitPrice !== null) {
+        const totalPrice = quantity * unitPrice;
+        this.medicineForm.get('totalprice')?.setValue(totalPrice); // Corrected 'totalprice' control name
+      }
+    }
+  }
+  
+  
 
 
   private loadGeneric() {

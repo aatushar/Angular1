@@ -26,7 +26,7 @@
 
     <div class="mb-3">
       <label for="quantity" class="form-label">Quantity:</label>
-      <input type="number" id="quantity" formControlName="quantity" class="form-control" required>
+      <input type="number" id="quantity" formControlName="quantity" class="form-control"  (input)="calculateTotalPrice()">
       <div class="invalid-feedback">Quantity is required.</div>
     </div>
 
@@ -37,18 +37,56 @@
     </div>
 
     <div class="mb-3">
+      <label for="totalPrice" class="form-label">Total Price:</label>
+      <input type="number" formControlName="totalPrice" class="form-control" required>
+    </div>
+
+
+    <div class="mb-3">
       <label for="productionDate" class="form-label">Purchase Date:</label>
       <input type="date" id="productionDate" formControlName="productionDate" class="form-control" required>
       <div class="invalid-feedback">Production date is required.</div>
     </div>
 
-    <div class="mb-3">
+ 
+    <!-- <div class="mb-3">
       <label for="expiryDate" class="form-label">Warranty Date:</label>
       <input type="date" id="expiryDate" formControlName="expiryDate" class="form-control" required>
       <div class="invalid-feedback">Expiry date is required.</div>
-    </div>
+    </div> -->
 
     <button type="submit" class="btn btn-primary" [disabled]="medicineForm.invalid">Add Gadgets</button>
   </form>
 </div>
+
+<div class="container mt-5">
+  <h2>All Purchase</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name:</th>
+        <th>Gadgets Type:</th>
+        <th>Brand Name:</th>
+        <th>Quantity:</th>
+        <th>Unit Price:</th>
+        <th>Total Price</th>
+        <th>Purchase Date:</th>
+        <!-- <th>Warranty Date:</th> -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let medicine of medicine">
+        <td>{{ medicine.name }}</td>
+        <td>{{ medicine.generic?.name}}</td>
+        <td>{{ medicine.manufacturer?.name}}</td>
+        <td>{{ medicine.quantity}}</td>
+        
+        <td>{{ medicine.unitPrice}}</td>
+        <td>{{ medicine.productionDate }}</td>
+        <!-- <td>{{ medicine.expiryDate| date }}</td> -->
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 </main>

@@ -3,7 +3,7 @@
   <h2>Add Sale</h2>
   <form *ngIf="salesForm" [formGroup]="salesForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <label for="medicine">Medicine:</label>
+      <label for="medicine">Gadgets Name:</label>
       <select formControlName="medicine" class="form-control" id="medicine" (change)="updateUnitPrice()">
         <option value="" disabled>Select a item</option>
         <option *ngFor="let med of medicine" [value]="med.id">{{ med.name }}</option>
@@ -63,7 +63,7 @@
     <thead>
       <tr>
         <th>Sale ID</th>
-        <th>Medicine</th>
+        <th>Gadgets Name</th>
         <th>Quantity Sold</th>
         <th>Unit Price</th>
         <th>Total Price</th>
