@@ -10,7 +10,7 @@ import { ManufacturerService } from '../../service/manufacturer.service';
 @Component({
   selector: 'app-medicine',
   templateUrl: './medicine.component.html',
-  styleUrl: './medicine.component.css'
+  styleUrls: ['./medicine.component.css']
 })
 export class MedicineComponent implements OnInit {
 
@@ -20,7 +20,6 @@ export class MedicineComponent implements OnInit {
 
   medicineForm!: FormGroup;
 
-
   constructor(
     private medicineService: MedicineService,
     private genericService: GenericService,
@@ -28,45 +27,25 @@ export class MedicineComponent implements OnInit {
     private formBuilder: FormBuilder
   ) { }
 
-
   ngOnInit(): void {
-    
     this.loadGeneric();
     this.loadManufacturer();
     this.loadMedicines();
-
     this.initMedicineForm();
   }
 
   private initMedicineForm() {
     this.medicineForm = this.formBuilder.group({
       name: ['', Validators.required],
-      quantity:['', Validators.required],
-      unitPrice:['', Validators.required],
-      totalprice:['', Validators.required],
-      productionDate:['', Validators.required],
-      // expiryDate:['', Validators.required],
+      quantity: ['', Validators.required],
+      unitPrice: ['', Validators.required],
+      totalPrice: ['', Validators.required], // Corrected 'totalPrice' control name
+      productionDate: ['', Validators.required],
       generic: [null, Validators.required],
-      manufacturer: [null, Validators.required] // Assuming you have a department dropdown
+      manufacturer: [null, Validators.required]
     });
-    
   }
-  updateUnitPrice(): void {
-    const control = this.medicineForm.get('medicine');
-    if (control != null) {
-      const selectedMedicineId = control.value;
-      console.log('Selected Medicine ID:', selectedMedicineId);
-      console.log('Medicine Array:', this.medicine);
-      const selectedMedicine = this.medicine.find(med => med.id == selectedMedicineId);
-      console.log('Selected Medicine:', selectedMedicine);
-      if (selectedMedicine) {
-        this.medicineForm.get('unitPrice')?.setValue(selectedMedicine.unitPrice);
-        this.calculateTotalPrice();
-      } else {
-        console.log('Selected Medicine not found in the array');
-      }
-    }
-  }
+
   calculateTotalPrice(): void {
     const quantityControl = this.medicineForm.get('quantity');
     const unitPriceControl = this.medicineForm.get('unitPrice');
@@ -77,26 +56,21 @@ export class MedicineComponent implements OnInit {
   
       if (quantity !== null && unitPrice !== null) {
         const totalPrice = quantity * unitPrice;
-        this.medicineForm.get('totalprice')?.setValue(totalPrice); // Corrected 'totalprice' control name
+        this.medicineForm.get('totalPrice')?.setValue(totalPrice); // Corrected 'totalPrice' control name
       }
     }
   }
-  
-  
-
 
   private loadGeneric() {
     this.genericService.getAll().subscribe({
       next: (data: any) => {
         this.generic = data;
-        console.log(this.generic)
       },
       error: (error: any) => {
-        console.error('not found', error);
+        console.error('Error loading generic data', error);
       }
     });
   }
-
 
   private loadManufacturer() {
     this.manufacturerService.getAllManufacturers().subscribe({
@@ -104,24 +78,21 @@ export class MedicineComponent implements OnInit {
         this.manufacturer = data;
       },
       error: (error: any) => {
-        console.error('not found', error);
+        console.error('Error loading manufacturer data', error);
       }
     });
   }
 
-
-  private loadMedicines(){
+  private loadMedicines() {
     this.medicineService.getall().subscribe({
       next: (data: any) => {
         this.medicine = data;
       },
       error: (error: any) => {
-        console.error('not found', error);
+        console.error('Error loading medicine data', error);
       }
     });
-
   }
-
 
   onSubmit() {
     if (this.medicineForm.valid) {
@@ -132,11 +103,8 @@ export class MedicineComponent implements OnInit {
           this.loadMedicines(); // Refresh the list of medicines after creation
           this.medicineForm.reset(); // Reset the form
         },
-        error => alert('Error creating medicine')
+        error => console.error('Error creating medicine', error)
       );
     }
   }
-
-
-
 }
