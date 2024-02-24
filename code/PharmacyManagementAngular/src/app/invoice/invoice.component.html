@@ -1,0 +1,43 @@
+<main id="main" class="main">
+<div class="container">
+    <h2>Create Invoice</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="customerName">Customer Name:</label>
+        <input type="text" id="customerName" name="customerName" [(ngModel)]="formData.customerName" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="invoiceNumber">Invoice Number:</label>
+        <input type="text" id="invoiceNumber" name="invoiceNumber" [(ngModel)]="formData.invoiceNumber" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="orderNumber">Order Number:</label>
+        <input type="text" id="orderNumber" name="orderNumber" [(ngModel)]="formData.orderNumber" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="invoiceDate">Invoice Date:</label>
+        <input type="date" id="invoiceDate" name="invoiceDate" [(ngModel)]="formData.invoiceDate" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="terms">Terms:</label>
+        <select id="terms" name="terms" [(ngModel)]="formData.terms" class="form-control" (change)="calculateDueDate()">
+          <option value="Net10">Net 10</option>
+          <option value="Net15">Net 15</option>
+          <option value="Net30">Net 30</option>
+          <option value="Net45">Net 45</option>
+          <option value="Net60">Net 60</option>
+          <option value="DueOnReceipt">Due on Receipt</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="dueDate">Due Date:</label>
+        <input type="date" id="dueDate" name="dueDate" [(ngModel)]="formData.dueDate" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="salesPerson">Sales Person:</label>
+        <input type="text" id="salesPerson" name="salesPerson" [(ngModel)]="formData.salesPerson" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+  </div>
+</main>

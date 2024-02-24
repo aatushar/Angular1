@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MedicineComponent } from './medicine/medicine/medicine.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { provideHttpClient, withFetch } from '@angular/common/http';
+import { HttpClientJsonpModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { SalesComponent } from './salse/sales/sales.component';
 import { GenericComponent } from './generic/generic.component';
 import { ManufacturerComponent } from './manufacturer/manufacturer.component';
@@ -13,6 +13,7 @@ import { AppHeaderComponent } from './app-header/app-header.component';
 import { AppSidebarComponent } from './app-sidebar/app-sidebar.component';
 import { AppMainComponent } from './app-main/app-main.component';
 import { AppFooterComponent } from './app-footer/app-footer.component';
+import { InvoiceComponent } from './invoice/invoice.component';
 
 @NgModule({
   declarations: [
@@ -24,13 +25,15 @@ import { AppFooterComponent } from './app-footer/app-footer.component';
     AppHeaderComponent,
     AppSidebarComponent,
     AppMainComponent,
-    AppFooterComponent
+    AppFooterComponent,
+    InvoiceComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientJsonpModule
   ],
   providers: [
     provideHttpClient(

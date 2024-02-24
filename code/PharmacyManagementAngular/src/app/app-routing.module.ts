@@ -5,8 +5,10 @@ import { SalesComponent } from './salse/sales/sales.component';
 import { ManufacturerComponent } from './manufacturer/manufacturer.component';
 import { GenericComponent } from './generic/generic.component';
 import { AppMainComponent } from './app-main/app-main.component';
+import { InvoiceComponent } from './invoice/invoice.component';
 
 const routes: Routes = [
+  {path: 'addinvoice', component: InvoiceComponent},
   {path: 'addmedicine', component: MedicineComponent},
   {path: 'addsales', component: SalesComponent},
   {path: 'addmanufacturer', component: ManufacturerComponent},
