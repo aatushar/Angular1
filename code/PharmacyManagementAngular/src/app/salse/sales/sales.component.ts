@@ -56,6 +56,8 @@ export class SalesComponent implements OnInit, OnDestroy {
       } else {
         console.log('Selected Medicine not found in the array');
       }
+
+      
     }
   }
   
